@@ -12,6 +12,48 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'><path d='M18 2C18 2 8 14 8 22C8 27.52 12.48 32 18 32C23.52 32 28 27.52 28 22C28 14 18 2 18 2Z' fill='%23c9a84c'/></svg>">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько стоит памятник из гранита?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Стоимость гранитного памятника — от 35 000 рублей. Точная цена зависит от размеров, формы и вида гравировки. Позвоните для расчёта: +7 (900) 278-85-61."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие сроки изготовления памятника?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Стандартный срок — 2–3 недели. Возможно экспресс-изготовление за 1–2 суток за дополнительную плату."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Вы работаете по всему Тимашевскому району?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, мастер выезжает на все кладбища Тимашевского района: Тимашевск, Медвёдовская, Роговская, Новокорсунская, Днепровская и другие населённые пункты."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли заказать экспресс-изготовление?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, мы делаем срочные заказы за 1–2 суток. Стоимость экспресс-изготовления рассчитывается индивидуально."
+          }
+        }
+      ]
+    }
+    </script>
 
     <script type="application/ld+json">
     {
@@ -820,6 +862,230 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ===== HERO ENHANCEMENTS ===== */
+        .hero {
+            border-top: 3px solid;
+            border-image: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold-light) 50%, var(--gold) 70%, transparent 100%) 1;
+        }
+        .hero-free-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(201,168,76,0.15);
+            border: 1px solid rgba(201,168,76,0.35);
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 50px;
+            margin-left: 10px;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+
+        /* ===== ПОЧЕМУ МЫ ===== */
+        #why-us {
+            background: var(--bg);
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .why-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            transition: border-color 0.25s, transform 0.2s;
+        }
+        .why-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+        .why-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(201,168,76,0.1);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: var(--gold);
+        }
+        .why-icon svg { width: 24px; height: 24px; }
+        .why-card h3 {
+            font-family: 'PT Serif', serif;
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        .why-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        @media (max-width: 900px) {
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .why-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ===== SERVICE CARD ORDER BUTTON ===== */
+        .service-card {
+            display: flex;
+            flex-direction: column;
+        }
+        .service-card p { flex: 1; }
+        .btn-order {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 8px 18px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 14px;
+            transition: background 0.2s, color 0.2s;
+            cursor: pointer;
+        }
+        .btn-order:hover {
+            background: var(--gold);
+            color: #1a1a1a;
+        }
+
+        /* ===== CALCULATOR EXTRAS ===== */
+        @keyframes goldFlash {
+            0%   { color: var(--gold); }
+            30%  { color: #fff; text-shadow: 0 0 14px var(--gold-light); }
+            60%  { color: var(--gold-light); text-shadow: 0 0 8px var(--gold); }
+            100% { color: var(--gold); text-shadow: none; }
+        }
+        .calc-result-price.flash {
+            animation: goldFlash 0.6s ease;
+        }
+        .calc-checkbox-row {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .calc-checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .calc-checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--gold);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .calc-checkbox-item label {
+            font-size: 14px;
+            color: var(--text);
+            cursor: pointer;
+            margin: 0;
+        }
+        .calc-tooltip {
+            font-size: 12px;
+            color: var(--text-dim);
+            background: rgba(201,168,76,0.07);
+            border-left: 3px solid var(--gold);
+            padding: 8px 12px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+
+        /* ===== FLOATING MOBILE CTA ===== */
+        .mobile-cta-bar {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .mobile-cta-bar {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 52px;
+                background: var(--gold);
+                z-index: 999;
+                box-shadow: 0 -2px 12px rgba(0,0,0,0.3);
+            }
+            .mobile-cta-bar a {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 7px;
+                color: #1a1a1a;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 700;
+                border: none;
+                background: none;
+            }
+            .mobile-cta-bar a:first-child {
+                border-right: 1px solid rgba(0,0,0,0.15);
+            }
+            .mobile-cta-bar svg {
+                width: 18px;
+                height: 18px;
+                flex-shrink: 0;
+            }
+            body {
+                padding-bottom: 60px;
+            }
+            /* Mobile process steps — vertical connecting lines */
+            .process-steps {
+                position: relative;
+            }
+            .process-step {
+                padding-bottom: 24px;
+            }
+            .process-step::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                transform: translateX(-50%);
+                width: 2px;
+                height: 24px;
+                background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
+                opacity: 0.35;
+                display: none;
+            }
+        }
+        @media (max-width: 480px) {
+            .process-step {
+                position: relative;
+            }
+            .process-step:not(:last-child)::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                bottom: -4px;
+                transform: translateX(-50%);
+                width: 2px;
+                height: 20px;
+                background: linear-gradient(180deg, rgba(201,168,76,0.5) 0%, transparent 100%);
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
@@ -871,7 +1137,16 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
                 Позвонить мастеру
             </a>
-            <a href="#calculator" class="btn-secondary">Рассчитать стоимость</a>
+            <a href="#contact" class="btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Оставить заявку
+            </a>
+        </div>
+        <div style="margin-top: 16px;">
+            <span class="hero-free-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Бесплатная консультация
+            </span>
         </div>
     </div>
 </section>
@@ -892,6 +1167,7 @@
                 <h3>Памятник из гранита</h3>
                 <p>Долговечные памятники из натурального гранита. Гравировка портрета, надписей и&nbsp;орнаментов.</p>
                 <div class="service-price">от 35 000 ₽</div>
+                <a href="#contact" class="btn-order">Заказать</a>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">
@@ -900,6 +1176,7 @@
                 <h3>Памятник из мрамора</h3>
                 <p>Элегантные мраморные памятники. Классический внешний вид и&nbsp;благородная текстура камня.</p>
                 <div class="service-price">от 25 000 ₽</div>
+                <a href="#contact" class="btn-order">Заказать</a>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">
@@ -908,6 +1185,7 @@
                 <h3>Заливка основания и плитка</h3>
                 <p>Бетонное основание, укладка тротуарной и&nbsp;керамической плитки. Ровное и&nbsp;аккуратное покрытие.</p>
                 <div class="service-price">от 9 000 ₽/м²</div>
+                <a href="#contact" class="btn-order">Заказать</a>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">
@@ -916,6 +1194,7 @@
                 <h3>Оградки и навесы</h3>
                 <p>Изготовление и&nbsp;монтаж металлических оградок и&nbsp;навесов любой сложности.</p>
                 <div class="service-price">Цена по запросу</div>
+                <a href="#contact" class="btn-order">Заказать</a>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">
@@ -924,6 +1203,7 @@
                 <h3>Экспресс-изготовление</h3>
                 <p>Срочное изготовление памятника за&nbsp;1–2&nbsp;суток. Для ситуаций, когда время особенно важно.</p>
                 <div class="service-price">Цена по запросу</div>
+                <a href="#contact" class="btn-order">Заказать</a>
             </div>
         </div>
     </div>
@@ -949,6 +1229,60 @@
                 <h3>Срочное изготовление</h3>
                 <div class="timeline-duration">1–2 суток</div>
                 <p>Ускоренное изготовление за&nbsp;дополнительную плату. Когда времени мало, но&nbsp;качество важно.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ПОЧЕМУ МЫ -->
+<section id="why-us">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Наши преимущества</div>
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <p class="section-desc">Мастерская «Николай» — это семейное дело с душой, заботой и ответственностью за каждый заказ</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card fade-in">
+                <div class="why-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+                <h3>30+ лет опыта</h3>
+                <p>Семейное дело с 1990-х. Мастерство, проверенное временем.</p>
+            </div>
+            <div class="why-card fade-in">
+                <div class="why-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                    </svg>
+                </div>
+                <h3>Работаем напрямую</h3>
+                <p>Без посредников — общаетесь и работаете только с мастером.</p>
+            </div>
+            <div class="why-card fade-in">
+                <div class="why-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                </div>
+                <h3>Выезд на место</h3>
+                <p>Бесплатный замер и консультация на месте. Тимашевский район.</p>
+            </div>
+            <div class="why-card fade-in">
+                <div class="why-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <polyline points="9 11 12 14 22 4"/>
+                        <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                    </svg>
+                </div>
+                <h3>Гарантия качества</h3>
+                <p>Контролируем каждый этап от макета до установки.</p>
             </div>
         </div>
     </div>
@@ -1066,11 +1400,26 @@
                 </div>
             </div>
 
+            <div class="calc-field">
+                <label style="margin-bottom:10px; display:block;">Дополнительные работы</label>
+                <div class="calc-checkbox-row">
+                    <div class="calc-checkbox-item">
+                        <input type="checkbox" id="calcPortrait" onchange="calculate()">
+                        <label for="calcPortrait">Портрет на камне <span style="color:var(--gold);font-weight:600">(+5 000 ₽)</span></label>
+                    </div>
+                    <div class="calc-checkbox-item">
+                        <input type="checkbox" id="calcEngrave" onchange="calculate()">
+                        <label for="calcEngrave">Гравировка надписи <span style="color:var(--gold);font-weight:600">(+3 000 ₽)</span></label>
+                    </div>
+                </div>
+            </div>
+
             <div class="calc-result">
                 <div class="calc-result-label">Примерная стоимость</div>
                 <div class="calc-result-price" id="calcPrice">от 35 000 ₽</div>
                 <div class="calc-result-note">* Окончательная цена зависит от выбранного камня, формы и гравировки. Позвоните для точного расчёта.</div>
             </div>
+            <div class="calc-tooltip">Это ориентировочная стоимость. Точную цену мастер назовёт после замера.</div>
 
             <div style="margin-top: 20px; text-align: center;">
                 <a href="tel:+79002788561" class="btn-primary">Узнать точную цену</a>
@@ -1187,6 +1536,23 @@
     </div>
 </footer>
 
+<!-- FLOATING MOBILE CTA BAR -->
+<div class="mobile-cta-bar" role="navigation" aria-label="Быстрый звонок и заявка">
+    <a href="tel:+79002788561" aria-label="Позвонить">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        Позвонить
+    </a>
+    <a href="#contact" aria-label="Оставить заявку">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        Заявка
+    </a>
+</div>
+
 <script>
 // ===== Header scroll effect =====
 const header = document.getElementById('header');
@@ -1242,13 +1608,17 @@ function calculate() {
     const monumentFields = document.getElementById('monumentFields');
     const tileFields = document.getElementById('tileFields');
     const priceEl = document.getElementById('calcPrice');
+    const portrait = document.getElementById('calcPortrait') ? document.getElementById('calcPortrait').checked : false;
+    const engrave = document.getElementById('calcEngrave') ? document.getElementById('calcEngrave').checked : false;
+    const extras = (portrait ? 5000 : 0) + (engrave ? 3000 : 0);
 
+    let price;
     if (type === 'tile') {
         monumentFields.style.display = 'none';
         tileFields.style.display = 'block';
         const area = parseFloat(document.getElementById('calcArea').value) || 2;
-        const price = Math.round(area * 9000);
-        priceEl.textContent = 'от ' + price.toLocaleString('ru-RU') + ' ₽';
+        price = Math.round(area * 9000);
+        // tile extras not applicable but keep structure
     } else {
         monumentFields.style.display = 'block';
         tileFields.style.display = 'none';
@@ -1269,16 +1639,27 @@ function calculate() {
 
         // Reference: 100x50 = 5000 cm² is the base size
         const refArea = 5000;
-        let price;
         if (areaCm2 <= refArea) {
             price = basePrice;
         } else {
             price = basePrice + Math.round((areaCm2 - refArea) * pricePerCm2);
         }
 
+        // Add extras (portrait, engrave)
+        price += extras;
+
         // Round to nearest 500
         price = Math.ceil(price / 500) * 500;
-        priceEl.textContent = 'от ' + price.toLocaleString('ru-RU') + ' ₽';
+    }
+
+    const newText = 'от ' + price.toLocaleString('ru-RU') + ' ₽';
+    if (priceEl.textContent !== newText) {
+        priceEl.textContent = newText;
+        // Gold flash animation
+        priceEl.classList.remove('flash');
+        void priceEl.offsetWidth; // reflow to restart animation
+        priceEl.classList.add('flash');
+        setTimeout(() => priceEl.classList.remove('flash'), 700);
     }
 }
 
@@ -1289,13 +1670,17 @@ const observer = new IntersectionObserver((entries) => {
             entry.target.classList.add('visible');
         }
     });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // Init calculator
 calculate();
 </script>
+
+<!-- Яндекс.Метрика: вставьте код счётчика ниже -->
+<!-- <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(XXXXXXXX, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });</script> -->
+<!-- /Яндекс.Метрика -->
 
 <script data-pplx-inline-edit>
 (function(){
