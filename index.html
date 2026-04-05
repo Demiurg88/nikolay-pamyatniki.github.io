@@ -437,7 +437,11 @@
         .gallery-item:first-child {
             grid-column: span 2;
             grid-row: span 2;
-            aspect-ratio: auto;
+            aspect-ratio: 4/3;
+        }
+        .gallery-item:first-child img {
+            object-fit: cover;
+            object-position: center 70%;
         }
         .gallery-item img {
             width: 100%;
@@ -1104,7 +1108,6 @@
         <nav class="header-nav" id="mainNav">
             <a href="#services">Услуги</a>
             <a href="#gallery">Работы</a>
-            <a href="#calculator">Калькулятор</a>
             <a href="#reviews">Отзывы</a>
             <a href="#contact">Заявка</a>
         </nav>
@@ -1360,73 +1363,7 @@
     </div>
 </section>
 
-<!-- CALCULATOR -->
-<section id="calculator">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-label">Расчёт</div>
-            <h2 class="section-title">Онлайн-калькулятор</h2>
-            <p class="section-desc">Рассчитайте примерную стоимость. Точную цену уточняйте у мастера.</p>
-        </div>
-        <div class="calc-wrapper">
-            <div class="calc-field">
-                <label for="calcType">Тип изделия</label>
-                <select id="calcType" onchange="calculate()">
-                    <option value="granite">Памятник из гранита</option>
-                    <option value="marble">Памятник из мрамора</option>
-                    <option value="tile">Заливка основания + плитка</option>
-                </select>
-            </div>
 
-            <div id="monumentFields">
-                <div class="calc-row">
-                    <div class="calc-field">
-                        <label for="calcHeight">Высота стелы, см</label>
-                        <input type="number" id="calcHeight" value="100" min="40" max="200" oninput="calculate()" placeholder="100">
-                    </div>
-                    <div class="calc-field">
-                        <label for="calcWidth">Ширина стелы, см</label>
-                        <input type="number" id="calcWidth" value="50" min="30" max="120" oninput="calculate()" placeholder="50">
-                    </div>
-                </div>
-            </div>
-
-            <div id="tileFields" style="display:none;">
-                <div class="calc-row">
-                    <div class="calc-field">
-                        <label for="calcArea">Площадь, м²</label>
-                        <input type="number" id="calcArea" value="2" min="1" max="30" step="0.5" oninput="calculate()" placeholder="2">
-                    </div>
-                </div>
-            </div>
-
-            <div class="calc-field">
-                <label style="margin-bottom:10px; display:block;">Дополнительные работы</label>
-                <div class="calc-checkbox-row">
-                    <div class="calc-checkbox-item">
-                        <input type="checkbox" id="calcPortrait" onchange="calculate()">
-                        <label for="calcPortrait">Портрет на камне <span style="color:var(--gold);font-weight:600">(+5 000 ₽)</span></label>
-                    </div>
-                    <div class="calc-checkbox-item">
-                        <input type="checkbox" id="calcEngrave" onchange="calculate()">
-                        <label for="calcEngrave">Гравировка надписи <span style="color:var(--gold);font-weight:600">(+3 000 ₽)</span></label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="calc-result">
-                <div class="calc-result-label">Примерная стоимость</div>
-                <div class="calc-result-price" id="calcPrice">от 35 000 ₽</div>
-                <div class="calc-result-note">* Окончательная цена зависит от выбранного камня, формы и гравировки. Позвоните для точного расчёта.</div>
-            </div>
-            <div class="calc-tooltip">Это ориентировочная стоимость. Точную цену мастер назовёт после замера.</div>
-
-            <div style="margin-top: 20px; text-align: center;">
-                <a href="tel:+79002788561" class="btn-primary">Узнать точную цену</a>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- CONTACT / FORM -->
 <section id="contact">
@@ -1436,13 +1373,13 @@
             <h2 class="section-title">Оставить заявку</h2>
             <p class="section-desc">Заполните форму, и мы свяжемся с вами в рабочее время (пн–сб, 9:00–18:00)</p>
         </div>
-        <div class="form-container" style="max-width:640px; margin:0 auto;">
+        <div class="form-container" style="max-width:640px; margin:0 auto; background:#fff; border-radius:12px; padding:24px 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.3);">
             <script src="https://forms.yandex.ru/_static/embed.js"></script>
             <iframe src="https://forms.yandex.ru/u/69cfe15d49af47001b52ca95?iframe=1"
                     frameborder="0"
                     name="ya-form-69cfe15d49af47001b52ca95"
                     width="100%"
-                    style="min-height:520px; border:none; border-radius:8px; background:transparent;">
+                    style="min-height:520px; border:none; border-radius:8px; background:#fff;">
             </iframe>
         </div>
     </div>
@@ -1505,7 +1442,6 @@
             <ul>
                 <li><a href="#services">Услуги</a></li>
                 <li><a href="#gallery">Наши работы</a></li>
-                <li><a href="#calculator">Калькулятор</a></li>
                 <li><a href="#reviews">Отзывы</a></li>
                 <li><a href="#contact">Оставить заявку</a></li>
             </ul>
@@ -1602,66 +1538,7 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') navLightbox(1);
 });
 
-// ===== Calculator =====
-function calculate() {
-    const type = document.getElementById('calcType').value;
-    const monumentFields = document.getElementById('monumentFields');
-    const tileFields = document.getElementById('tileFields');
-    const priceEl = document.getElementById('calcPrice');
-    const portrait = document.getElementById('calcPortrait') ? document.getElementById('calcPortrait').checked : false;
-    const engrave = document.getElementById('calcEngrave') ? document.getElementById('calcEngrave').checked : false;
-    const extras = (portrait ? 5000 : 0) + (engrave ? 3000 : 0);
 
-    let price;
-    if (type === 'tile') {
-        monumentFields.style.display = 'none';
-        tileFields.style.display = 'block';
-        const area = parseFloat(document.getElementById('calcArea').value) || 2;
-        price = Math.round(area * 9000);
-        // tile extras not applicable but keep structure
-    } else {
-        monumentFields.style.display = 'block';
-        tileFields.style.display = 'none';
-        const h = parseInt(document.getElementById('calcHeight').value) || 100;
-        const w = parseInt(document.getElementById('calcWidth').value) || 50;
-
-        // Price calculation based on area of the stele
-        const areaCm2 = h * w;
-        let basePrice, pricePerCm2;
-
-        if (type === 'granite') {
-            basePrice = 35000;
-            pricePerCm2 = 5.5;
-        } else {
-            basePrice = 25000;
-            pricePerCm2 = 4.0;
-        }
-
-        // Reference: 100x50 = 5000 cm² is the base size
-        const refArea = 5000;
-        if (areaCm2 <= refArea) {
-            price = basePrice;
-        } else {
-            price = basePrice + Math.round((areaCm2 - refArea) * pricePerCm2);
-        }
-
-        // Add extras (portrait, engrave)
-        price += extras;
-
-        // Round to nearest 500
-        price = Math.ceil(price / 500) * 500;
-    }
-
-    const newText = 'от ' + price.toLocaleString('ru-RU') + ' ₽';
-    if (priceEl.textContent !== newText) {
-        priceEl.textContent = newText;
-        // Gold flash animation
-        priceEl.classList.remove('flash');
-        void priceEl.offsetWidth; // reflow to restart animation
-        priceEl.classList.add('flash');
-        setTimeout(() => priceEl.classList.remove('flash'), 700);
-    }
-}
 
 // ===== Scroll animations =====
 const observer = new IntersectionObserver((entries) => {
@@ -1674,8 +1551,6 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Init calculator
-calculate();
 </script>
 
 <!-- Yandex.Metrika counter -->
