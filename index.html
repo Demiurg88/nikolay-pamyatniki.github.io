@@ -788,17 +788,90 @@
             transition: color 0.2s;
         }
         .footer-contact-item a:hover { color: var(--gold); }
+        .footer-legal {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
         .footer-bottom {
             max-width: 1200px;
             margin: 0 auto;
-            padding-top: 24px;
-            border-top: 1px solid var(--border);
+            padding-top: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 13px;
             color: var(--text-dim);
         }
+
+        /* ===== PRIVACY MODAL ===== */
+        .privacy-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: rgba(0,0,0,0.75);
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 16px;
+            overflow-y: auto;
+        }
+        .privacy-modal.active {
+            display: flex;
+        }
+        .privacy-content {
+            background: #fff;
+            color: #222;
+            max-width: 720px;
+            width: 100%;
+            border-radius: 12px;
+            padding: 40px 36px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        .privacy-content h2 {
+            font-family: 'PT Serif', serif;
+            font-size: 22px;
+            margin-bottom: 4px;
+            color: #1a1a1a;
+        }
+        .privacy-date {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 24px;
+        }
+        .privacy-content h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        .privacy-content p {
+            margin-bottom: 12px;
+        }
+        .privacy-content ul {
+            margin: 0 0 12px 20px;
+            padding: 0;
+        }
+        .privacy-content li {
+            margin-bottom: 4px;
+        }
+        .privacy-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #888;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .privacy-close:hover { color: #333; }
 
         /* ===== MOBILE ===== */
         @media (max-width: 768px) {
@@ -1466,9 +1539,15 @@
             </div>
         </div>
     </div>
+    <div class="footer-legal">
+        <p style="font-size:12px; color:var(--text-dim); line-height:1.6; margin-bottom:12px;">
+            Плательщик налога на профессиональный доход (самозанятый)<br>
+            Ливада Виталий Николаевич &middot; ИНН&nbsp;235307196639
+        </p>
+    </div>
     <div class="footer-bottom">
         <span>&copy; 2026 Мастерская «Николай». Все права защищены.</span>
-        <span>Тимашевский район, Краснодарский край</span>
+        <a href="#privacy" onclick="document.getElementById('privacyModal').classList.add('active');document.body.style.overflow='hidden';return false;" style="color:var(--text-dim); text-decoration:underline; font-size:13px;">Политика обработки персональных данных</a>
     </div>
 </footer>
 
@@ -1487,6 +1566,73 @@
         </svg>
         Заявка
     </a>
+</div>
+
+<!-- PRIVACY POLICY MODAL -->
+<div id="privacyModal" class="privacy-modal" onclick="if(event.target===this){this.classList.remove('active');document.body.style.overflow='';}">
+    <div class="privacy-content">
+        <button class="privacy-close" onclick="document.getElementById('privacyModal').classList.remove('active');document.body.style.overflow='';" aria-label="Закрыть">&times;</button>
+        <h2>Политика в отношении обработки персональных данных</h2>
+        <p class="privacy-date">Дата публикации: 05.04.2026</p>
+
+        <h3>1. Общие положения</h3>
+        <p>Настоящая Политика в&nbsp;отношении обработки персональных данных (далее&nbsp;— Политика) разработана в&nbsp;соответствии с&nbsp;Федеральным законом от&nbsp;27.07.2006&nbsp;№&nbsp;152‑ФЗ «О&nbsp;персональных данных» и&nbsp;определяет порядок обработки персональных данных и&nbsp;меры по&nbsp;обеспечению их безопасности.</p>
+
+        <h3>2. Оператор персональных данных</h3>
+        <p>Оператором персональных данных является:</p>
+        <ul>
+            <li>Ливада Виталий Николаевич</li>
+            <li>Плательщик налога на профессиональный доход (самозанятый)</li>
+            <li>ИНН: 235307196639</li>
+            <li>Телефон: +7 (900) 278-85-61</li>
+            <li>E-mail: marylands_plax@mail.ru</li>
+            <li>Адрес: Тимашевский район, Краснодарский край</li>
+        </ul>
+
+        <h3>3. Категории собираемых данных</h3>
+        <p>Оператор может обрабатывать следующие персональные данные, предоставленные пользователем через форму заявки на&nbsp;сайте:</p>
+        <ul>
+            <li>Имя</li>
+            <li>Номер телефона</li>
+            <li>Тип интересующей услуги</li>
+            <li>Текст комментария/пожелания</li>
+        </ul>
+        <p>Также автоматически собираются технические данные с помощью сервиса Яндекс.Метрика (обезличенные данные о&nbsp;посещении сайта, IP‑адрес, тип браузера, страницы посещения).</p>
+
+        <h3>4. Цели обработки</h3>
+        <p>Персональные данные обрабатываются исключительно в&nbsp;следующих целях:</p>
+        <ul>
+            <li>Обработка заявок на&nbsp;изготовление и&nbsp;установку памятников</li>
+            <li>Обратная связь с&nbsp;клиентом: звонок, консультация, согласование заказа</li>
+            <li>Улучшение качества обслуживания и&nbsp;работы сайта (аналитика Яндекс.Метрика)</li>
+        </ul>
+
+        <h3>5. Правовые основания</h3>
+        <p>Обработка персональных данных осуществляется на&nbsp;основании согласия субъекта персональных данных (п. 1 ч. 1 ст. 6 ФЗ‑152). Отправляя заявку через форму на&nbsp;сайте, пользователь даёт своё добровольное согласие на&nbsp;обработку указанных данных в&nbsp;целях, описанных в&nbsp;разделе&nbsp;4.</p>
+
+        <h3>6. Порядок обработки и хранения</h3>
+        <ul>
+            <li>Данные из формы заявки передаются через сервис Яндекс.Формы (ООО «Яндекс», Россия) и&nbsp;хранятся на&nbsp;серверах Яндекса на&nbsp;территории РФ.</li>
+            <li>Аналитические данные собираются сервисом Яндекс.Метрика (ООО «Яндекс», Россия).</li>
+            <li>Данные не&nbsp;передаются третьим лицам, за&nbsp;исключением случаев, предусмотренных законодательством РФ.</li>
+            <li>Срок хранения — до&nbsp;достижения цели обработки, но&nbsp;не&nbsp;более 1&nbsp;года с&nbsp;момента получения.</li>
+        </ul>
+
+        <h3>7. Защита данных</h3>
+        <p>Оператор принимает необходимые организационные и&nbsp;технические меры для защиты персональных данных от&nbsp;неправомерного или случайного доступа, уничтожения, изменения, блокирования, копирования, распространения, а&nbsp;также от&nbsp;иных неправомерных действий, в&nbsp;соответствии со&nbsp;ст. 19 ФЗ‑152.</p>
+
+        <h3>8. Права субъекта персональных данных</h3>
+        <p>Субъект персональных данных имеет право:</p>
+        <ul>
+            <li>Получить информацию об&nbsp;обработке своих персональных данных</li>
+            <li>Требовать уточнения, блокирования или уничтожения своих данных</li>
+            <li>Отозвать согласие на&nbsp;обработку, направив заявление на&nbsp;e-mail: marylands_plax@mail.ru</li>
+            <li>Обратиться с&nbsp;жалобой в&nbsp;Роскомнадзор</li>
+        </ul>
+
+        <h3>9. Заключительные положения</h3>
+        <p>Оператор вправе вносить изменения в&nbsp;настоящую Политику. Новая редакция публикуется на&nbsp;сайте и&nbsp;вступает в&nbsp;силу с&nbsp;момента размещения. Споры разрешаются в&nbsp;порядке, установленном законодательством Российской Федерации.</p>
+    </div>
 </div>
 
 <script>
